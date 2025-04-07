@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="Discover amazing destinations with Wanderlust Travels. Explore our exclusive travel packages and top itineraries.">
+  <title>Wanderlust Travels | Premium Travel Agency</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    
+    body {
+      background: linear-gradient(135deg, #1a2a6c, #b21f1f, #1a2a6c);
+      color: #fff;
+      padding: 20px;
+      line-height: 1.6;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    
+    header {
+      text-align: center;
+      padding: 40px 0;
+      margin-bottom: 30px;
+    }
+    
+    h1 {
+      font-size: 3.5rem;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      background: linear-gradient(to right, #ff8a00, #da1b60);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    
+    .intro {
+      font-size: 1.2rem;
+      max-width: 800px;
+      margin: 0 auto 30px;
+      background: rgba(0, 0, 0, 0.3);
+      padding: 20px;
+      border-radius: 10px;
+    }
+    
+    section {
+      background: rgba(0, 0, 0, 0.5);
+      padding: 30px;
+      border-radius: 15px;
+      margin-bottom: 40px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+    
+    h2 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      color: #ffcc00;
+      text-align: center;
+      border-bottom: 2px solid #ffcc00;
+      padding-bottom: 10px;
+    }
+    
+    .packages-intro {
+      text-align: center;
+      margin-bottom: 25px;
+      font-size: 1.1rem;
+    }
+    
+    .packages-list {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+    
+    .package-link {
+      display: inline-block;
+      background: linear-gradient(45deg, #00c9ff, #92fe9d);
+      color: #000;
+      text-decoration: none;
+      padding: 15px 30px;
+      border-radius: 50px;
+      font-weight: bold;
+      font-size: 1.2rem;
+      transition: transform 0.3s, box-shadow 0.3s;
+      text-align: center;
+      min-width: 200px;
+    }
+    
+    .package-link:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    }
+    
+    .itineraries {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-top: 30px;
+    }
+    
+    .itinerary {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
+      overflow: hidden;
+      transition: transform 0.3s;
+    }
+    
+    .itinerary:hover {
+      transform: translateY(-10px);
+    }
+    
+    .itinerary a {
+      display: block;
+      text-decoration: none;
+    }
+    
+    .itinerary img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      display: block;
+    }
+    
+    .itinerary figcaption {
+      padding: 20px;
+      text-align: center;
+      font-size: 1.3rem;
+      font-weight: bold;
+      color: #ffcc00;
+    }
+    
+    footer {
+      text-align: center;
+      padding: 30px;
+      margin-top: 30px;
+      background: rgba(0, 0, 0, 0.7);
+      border-radius: 15px;
+    }
+    
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2.5rem;
+      }
+      
+      .packages-list {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Discover Your Dream Destinations</h1>
+      <p class="intro">Welcome to Wanderlust Travels, where we turn your travel dreams into reality. Explore breathtaking landscapes, immerse yourself in diverse cultures, and create unforgettable memories with our expertly crafted travel experiences. Our team of travel specialists is dedicated to designing the perfect journey just for you.</p>
+    </header>
+    
+    <section class="packages">
+      <h2>Packages</h2>
+      <p class="packages-intro">Choose from our carefully curated travel packages designed to suit every traveler's needs. Whether you're seeking adventure, relaxation, or cultural immersion, we have the perfect option for you.</p>
+      
+      <div class="packages-list">
+        <a href="https://www.freecodecamp.org/learn" target="_blank" class="package-link">Group Travels</a>
+        <a href="https://www.freecodecamp.org/learn" target="_blank" class="package-link">Private Tours</a>
+      </div>
+    </section>
+    
+    <section class="itineraries-section">
+      <h2>Top Itineraries</h2>
+      <div class="itineraries">
+        <figure class="itinerary">
+          <a href="https://www.freecodecamp.org/learn" target="_blank">
+            <img src="https://cdn.freecodecamp.org/curriculum/labs/colosseo.jpg" alt="Historic Colosseum in Rome">
+            <figcaption>Roman Empire Adventure</figcaption>
+          </a>
+        </figure>
+        
+        <figure class="itinerary">
+          <a href="https://www.freecodecamp.org/learn" target="_blank">
+            <img src="https://cdn.freecodecamp.org/curriculum/labs/alps.jpg" alt="Beautiful Swiss Alps">
+            <figcaption>Alpine Mountain Escape</figcaption>
+          </a>
+        </figure>
+        
+        <figure class="itinerary">
+          <a href="https://www.freecodecamp.org/learn" target="_blank">
+            <img src="https://cdn.freecodecamp.org/curriculum/labs/sea.jpg" alt="Tropical beach paradise">
+            <figcaption>Tropical Island Getaway</figcaption>
+          </a>
+        </figure>
+      </div>
+    </section>
+    
+    <footer>
+      <p>&copy; 2023 Wanderlust Travels | Your Journey Begins Here</p>
+    </footer>
+  </div>
+</body>
+</html>
