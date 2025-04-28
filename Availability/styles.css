@@ -1,0 +1,72 @@
+:root {
+    --color0: #f2f2f2;
+    --color1: #d6eaf8;
+    --color2: #a9d1f2;
+    --color3: #5dade2;
+    --color4: #2874a6;
+    --color5: #154360;
+    --solid-border: solid 2px #000;
+    --dashed-border: dashed 2px #555;
+}
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+#legend {
+    margin-bottom: 20px;
+}
+
+#legend-gradient {
+    height: 20px;
+    background: linear-gradient(
+        to right,
+        var(--color0) 0%, var(--color0) 20%,
+        var(--color1) 20%, var(--color1) 40%,
+        var(--color2) 40%, var(--color2) 60%,
+        var(--color3) 60%, var(--color3) 80%,
+        var(--color4) 80%, var(--color4) 100%
+    );
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+th, td {
+    padding: 10px;
+    border-bottom: var(--solid-border);
+}
+
+tr.half td {
+    border-bottom: var(--dashed-border);
+}
+.time {
+    text-align: left;
+    background-color: #f4f4f4;
+}
+.available-0 {
+    background-color: var(--color0);
+}
+
+.available-1 {
+    background-color: var(--color1);
+}
+
+.available-2 {
+    background-color: var(--color2);
+}
+
+.available-3 {
+    background-color: var(--color3);
+}
+
+.available-4 {
+    background-color: var(--color4);
+}
+
+.available-5 {
+    background-color: var(--color5);
+}
