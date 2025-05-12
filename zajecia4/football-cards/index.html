@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Football Team Cards</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <h1 id="team"></h1>
+    <p><strong>Year:</strong> <span id="year"></span></p>
+    <p><strong>Head Coach:</strong> <span id="head-coach"></span></p>
+
+    <label for="position-select">Filter by position:</label>
+    <select id="position-select">
+        <option value="all">All Players</option>
+        <option value="forward">Forward</option>
+        <option value="midfielder">Midfielder</option>
+        <option value="defender">Defender</option>
+        <option value="goalkeeper">Goalkeeper</option>
+    </select>
+
+    <div id="player-cards"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
