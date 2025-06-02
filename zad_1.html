@@ -6,7 +6,7 @@
     <title>SoundWave Festival - Najlepsze Doświadczenie Muzyczne</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Reset i podstawowe style */
+        
         * {
             margin: 0;
             padding: 0;
@@ -53,7 +53,7 @@
             margin: 10px auto;
         }
         
-        /* Header */
+        
         header {
             background: rgba(10, 10, 29, 0.9);
             position: sticky;
@@ -86,7 +86,7 @@
             -webkit-text-fill-color: transparent;
         }
         
-        /* Menu mobilne */
+        
         .menu-toggle {
             display: flex;
             flex-direction: column;
@@ -153,7 +153,7 @@
             cursor: pointer;
         }
         
-        /* Hero Section */
+        
         .hero {
             height: 100vh;
             min-height: 500px;
@@ -202,7 +202,7 @@
             box-shadow: 0 6px 20px rgba(120, 115, 245, 0.6);
         }
         
-        /* Sekcja artyści */
+        
         .artists-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -251,7 +251,7 @@
             font-size: 0.9rem;
         }
         
-        /* Harmonogram */
+       
         .schedule-container {
             overflow-x: auto;
             margin-bottom: 30px;
@@ -286,7 +286,7 @@
             color: #7873f5;
         }
         
-        /* Galeria */
+        
         .gallery-scroll {
             overflow-x: auto;
             white-space: nowrap;
@@ -334,7 +334,7 @@
             white-space: normal;
         }
         
-        /* Newsletter */
+        
         .newsletter {
             background: linear-gradient(90deg, rgba(255, 110, 199, 0.1), rgba(120, 115, 245, 0.1));
             text-align: center;
@@ -374,7 +374,7 @@
             font-size: 1rem;
         }
         
-        /* Stopka */
+        
         footer {
             background: rgba(5, 5, 15, 0.95);
             padding: 40px 0 20px;
@@ -461,7 +461,7 @@
             color: rgba(255, 255, 255, 0.6);
         }
         
-        /* Strona harmonogramu */
+        
         .schedule-page {
             padding: 60px 0;
         }
@@ -490,7 +490,7 @@
             background: linear-gradient(90deg, #ff6ec7, #7873f5);
         }
         
-        /* Strona kontakt */
+        
         .contact-page {
             padding: 60px 0;
         }
@@ -529,13 +529,13 @@
             margin-bottom: 20px;
         }
         
-        /* Responsywność - Desktop */
+        
         @media (min-width: 768px) {
             .section-title {
                 font-size: 2.2rem;
             }
             
-            /* Menu desktop */
+            
             .menu-toggle {
                 display: none;
             }
@@ -576,13 +576,13 @@
                 font-size: 1.3rem;
             }
             
-            /* Artyści */
+            
             .artists-grid {
                 grid-template-columns: repeat(3, 1fr);
                 gap: 25px;
             }
             
-            /* Galeria */
+           
             .gallery-container {
                 display: grid;
                 grid-template-columns: repeat(3, 1fr);
@@ -599,7 +599,7 @@
                 height: 220px;
             }
             
-            /* Newsletter */
+            
             .newsletter-form {
                 flex-direction: row;
                 flex-wrap: wrap;
@@ -615,12 +615,12 @@
                 align-self: flex-end;
             }
             
-            /* Stopka */
+            
             .footer-content {
                 grid-template-columns: repeat(3, 1fr);
             }
             
-            /* Strona kontakt */
+            
             .contact-container {
                 grid-template-columns: 1fr 2fr;
             }
@@ -650,7 +650,7 @@
     </style>
 </head>
 <body>
-    <!-- Header z menu -->
+    
     <header>
         <div class="container header-container">
             <div class="logo">
@@ -680,7 +680,7 @@
         </div>
     </header>
 
-    <!-- Sekcja Hero -->
+    
     <section class="hero">
         <div class="hero-content">
             <h1>SoundWave Festival 2023</h1>
@@ -690,7 +690,7 @@
         </div>
     </section>
 
-    <!-- Sekcja Artyści -->
+    
     <section id="artists">
         <div class="container">
             <h2 class="section-title">Gwiazdy Festiwalu</h2>
@@ -738,7 +738,7 @@
         </div>
     </section>
 
-    <!-- Sekcja Harmonogram -->
+   
     <section id="schedule">
         <div class="container">
             <h2 class="section-title">Harmonogram</h2>
@@ -790,7 +790,7 @@
         </div>
     </section>
 
-    <!-- Galeria -->
+    
     <section id="gallery">
         <div class="container">
             <h2 class="section-title">Galeria z poprzedniej edycji</h2>
@@ -826,7 +826,7 @@
         </div>
     </section>
 
-    <!-- Newsletter -->
+    
     <section id="newsletter">
         <div class="container">
             <div class="newsletter">
@@ -850,7 +850,7 @@
         </div>
     </section>
 
-    <!-- Stopka -->
+   
     <footer>
         <div class="container">
             <div class="footer-content">
@@ -894,7 +894,7 @@
         </div>
     </footer>
 
-    <!-- Podstrona Harmonogram -->
+   
     <section class="schedule-page" style="display: none;">
         <div class="container">
             <h2 class="section-title">Pełny Harmonogram</h2>
@@ -953,7 +953,7 @@
         </div>
     </section>
 
-    <!-- Podstrona Kontakt -->
+
     <section class="contact-page" style="display: none;">
         <div class="container">
             <h2 class="section-title">Kontakt</h2>
@@ -1034,7 +1034,7 @@
     </section>
 
     <script>
-        // Menu mobilne
+        
         const menuToggle = document.getElementById('menuToggle');
         const navMenu = document.getElementById('navMenu');
         const closeMenu = document.getElementById('closeMenu');
@@ -1049,7 +1049,7 @@
             document.body.style.overflow = 'auto';
         });
         
-        // Zamknij menu po kliknięciu w link
+        
         const navLinks = document.querySelectorAll('.nav-menu a');
         navLinks.forEach(link => {
             link.addEventListener('click', () => {
@@ -1058,7 +1058,7 @@
             });
         });
         
-        // Przełączanie dni na podstronie harmonogramu
+       
         const dayBtns = document.querySelectorAll('.day-btn');
         dayBtns.forEach(btn => {
             btn.addEventListener('click', () => {
