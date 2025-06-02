@@ -194,7 +194,7 @@
             font-weight: 600;
         }
         
-        /* Responsywność */
+       
         @media (max-width: 480px) {
             .task-form {
                 flex-direction: column;
@@ -225,7 +225,7 @@
         </div>
         
         <div class="tasks-container" id="tasks-container">
-            <!-- Zadania będą dodawane dynamicznie -->
+            
             <div class="empty-state" id="empty-state">
                 <i class="fas fa-clipboard-list"></i>
                 <h3>Brak zadań</h3>
@@ -250,13 +250,13 @@
             
             let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
             
-            // Funkcja zapisująca zadania do localStorage
+            
             function saveTasks() {
                 localStorage.setItem('tasks', JSON.stringify(tasks));
                 updateStats();
             }
             
-            // Funkcja aktualizująca statystyki
+            
             function updateStats() {
                 taskCount.textContent = tasks.length;
                 const completedTasks = tasks.filter(task => task.completed).length;
@@ -270,21 +270,21 @@
                 }
             }
             
-            // Funkcja oznaczająca zadanie jako wykonane/niewykonane
+            
             function toggleTaskCompletion(index) {
                 tasks[index].completed = !tasks[index].completed;
                 saveTasks();
                 renderTasks();
             }
             
-            // Funkcja usuwająca zadanie
+          
             function deleteTask(index) {
                 tasks.splice(index, 1);
                 saveTasks();
                 renderTasks();
             }
             
-            // Funkcja renderująca zadania
+            
             function renderTasks() {
                 tasksContainer.innerHTML = '';
                 
@@ -309,7 +309,7 @@
                 updateStats();
             }
             
-            // Obsługa formularza
+            
             taskForm.addEventListener('submit', function(e) {
                 e.preventDefault();
                 const text = taskInput.value.trim();
@@ -323,7 +323,7 @@
                 }
             });
             
-            // Inicjalizacja
+            
             renderTasks();
         });
     </script>
