@@ -1,0 +1,1071 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SoundWave Festival - Najlepsze Doświadczenie Muzyczne</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Reset i podstawowe style */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #0a0a1d;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+        
+        a {
+            text-decoration: none;
+            color: #ff6ec7;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        section {
+            padding: 40px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 1.8rem;
+            position: relative;
+            color: #ff6ec7;
+        }
+        
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, #ff6ec7, #7873f5);
+            margin: 10px auto;
+        }
+        
+        /* Header */
+        header {
+            background: rgba(10, 10, 29, 0.9);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 40px;
+            margin-right: 10px;
+        }
+        
+        .logo h1 {
+            font-size: 1.4rem;
+            background: linear-gradient(90deg, #ff6ec7, #7873f5);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        /* Menu mobilne */
+        .menu-toggle {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 21px;
+            cursor: pointer;
+            z-index: 1001;
+        }
+        
+        .menu-toggle span {
+            display: block;
+            height: 3px;
+            width: 100%;
+            background: #ff6ec7;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 80%;
+            max-width: 300px;
+            height: 100vh;
+            background: rgba(10, 10, 29, 0.98);
+            padding: 80px 20px 20px;
+            transition: all 0.5s ease;
+            z-index: 1000;
+            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.5);
+        }
+        
+        .nav-menu.active {
+            right: 0;
+        }
+        
+        .nav-menu ul {
+            list-style: none;
+        }
+        
+        .nav-menu ul li {
+            margin-bottom: 15px;
+        }
+        
+        .nav-menu ul li a {
+            display: block;
+            padding: 12px;
+            font-size: 1.1rem;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-menu ul li a:hover {
+            background: rgba(255, 110, 199, 0.1);
+        }
+        
+        .close-menu {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 1.5rem;
+            color: #ff6ec7;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            min-height: 500px;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)), url('https://images.unsplash.com/photo-1470225620780-dba8ba36b745?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            position: relative;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: linear-gradient(90deg, #ff6ec7, #7873f5);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(120, 115, 245, 0.4);
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(120, 115, 245, 0.6);
+        }
+        
+        /* Sekcja artyści */
+        .artists-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+        
+        .artist-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .artist-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .artist-img {
+            height: 180px;
+            overflow: hidden;
+        }
+        
+        .artist-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .artist-card:hover .artist-img img {
+            transform: scale(1.1);
+        }
+        
+        .artist-info {
+            padding: 15px;
+        }
+        
+        .artist-info h3 {
+            margin-bottom: 5px;
+            font-size: 1.1rem;
+        }
+        
+        .artist-info p {
+            color: #7873f5;
+            font-size: 0.9rem;
+        }
+        
+        /* Harmonogram */
+        .schedule-container {
+            overflow-x: auto;
+            margin-bottom: 30px;
+            padding-bottom: 10px;
+        }
+        
+        .schedule-table {
+            width: 100%;
+            min-width: 600px;
+            border-collapse: collapse;
+        }
+        
+        .schedule-table th, 
+        .schedule-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .schedule-table th {
+            background: rgba(255, 110, 199, 0.1);
+            color: #ff6ec7;
+            font-weight: 600;
+        }
+        
+        .schedule-table tbody tr:hover {
+            background: rgba(120, 115, 245, 0.1);
+        }
+        
+        .stage {
+            font-weight: bold;
+            color: #7873f5;
+        }
+        
+        /* Galeria */
+        .gallery-scroll {
+            overflow-x: auto;
+            white-space: nowrap;
+            padding-bottom: 20px;
+            scrollbar-width: none;
+        }
+        
+        .gallery-scroll::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .gallery-container {
+            display: inline-flex;
+            gap: 15px;
+        }
+        
+        .gallery-item {
+            width: 250px;
+            height: 180px;
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+            flex-shrink: 0;
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .gallery-item .caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 10px;
+            font-size: 0.9rem;
+            white-space: normal;
+        }
+        
+        /* Newsletter */
+        .newsletter {
+            background: linear-gradient(90deg, rgba(255, 110, 199, 0.1), rgba(120, 115, 245, 0.1));
+            text-align: center;
+            padding: 40px 20px;
+            border-radius: 15px;
+            margin: 30px 0;
+        }
+        
+        .newsletter-form {
+            max-width: 500px;
+            margin: 20px auto 0;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+        }
+        
+        .form-group label {
+            margin-bottom: 5px;
+            font-size: 0.9rem;
+            color: #ff6ec7;
+        }
+        
+        .form-group input, 
+        .form-group select, 
+        .form-group textarea {
+            padding: 12px;
+            border-radius: 5px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: rgba(10, 10, 29, 0.5);
+            color: white;
+            font-size: 1rem;
+        }
+        
+        /* Stopka */
+        footer {
+            background: rgba(5, 5, 15, 0.95);
+            padding: 40px 0 20px;
+            border-top: 1px solid rgba(255, 110, 199, 0.2);
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-column h3 {
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+            color: #ff6ec7;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: #7873f5;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column ul li a {
+            display: flex;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-column ul li a i {
+            margin-right: 10px;
+            width: 20px;
+            text-align: center;
+        }
+        
+        .footer-column ul li a:hover {
+            color: #7873f5;
+            padding-left: 5px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background: linear-gradient(90deg, #ff6ec7, #7873f5);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.6);
+        }
+        
+        /* Strona harmonogramu */
+        .schedule-page {
+            padding: 60px 0;
+        }
+        
+        .schedule-page .section-title {
+            margin-bottom: 40px;
+        }
+        
+        .day-selector {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+            gap: 10px;
+        }
+        
+        .day-btn {
+            padding: 10px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 30px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .day-btn.active {
+            background: linear-gradient(90deg, #ff6ec7, #7873f5);
+        }
+        
+        /* Strona kontakt */
+        .contact-page {
+            padding: 60px 0;
+        }
+        
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+        
+        .contact-info {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 25px;
+        }
+        
+        .contact-info-item {
+            display: flex;
+            margin-bottom: 20px;
+        }
+        
+        .contact-info-item i {
+            font-size: 1.5rem;
+            color: #ff6ec7;
+            margin-right: 15px;
+            min-width: 30px;
+        }
+        
+        .contact-form {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 25px;
+        }
+        
+        .contact-form .form-group {
+            margin-bottom: 20px;
+        }
+        
+        /* Responsywność - Desktop */
+        @media (min-width: 768px) {
+            .section-title {
+                font-size: 2.2rem;
+            }
+            
+            /* Menu desktop */
+            .menu-toggle {
+                display: none;
+            }
+            
+            .nav-menu {
+                position: static;
+                height: auto;
+                width: auto;
+                background: transparent;
+                padding: 0;
+                box-shadow: none;
+                right: 0;
+            }
+            
+            .close-menu {
+                display: none;
+            }
+            
+            .nav-menu ul {
+                display: flex;
+                gap: 20px;
+            }
+            
+            .nav-menu ul li {
+                margin-bottom: 0;
+            }
+            
+            .nav-menu ul li a {
+                padding: 5px 10px;
+                font-size: 1rem;
+            }
+            
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.3rem;
+            }
+            
+            /* Artyści */
+            .artists-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 25px;
+            }
+            
+            /* Galeria */
+            .gallery-container {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 20px;
+                white-space: normal;
+            }
+            
+            .gallery-scroll {
+                overflow-x: visible;
+            }
+            
+            .gallery-item {
+                width: 100%;
+                height: 220px;
+            }
+            
+            /* Newsletter */
+            .newsletter-form {
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .form-group {
+                flex: 1 0 200px;
+            }
+            
+            .btn {
+                flex: 0 0 auto;
+                align-self: flex-end;
+            }
+            
+            /* Stopka */
+            .footer-content {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            /* Strona kontakt */
+            .contact-container {
+                grid-template-columns: 1fr 2fr;
+            }
+        }
+        
+        @media (min-width: 992px) {
+            .header-container {
+                padding: 15px 0;
+            }
+            
+            .logo h1 {
+                font-size: 1.8rem;
+            }
+            
+            .hero h1 {
+                font-size: 4.5rem;
+            }
+            
+            .artists-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+            
+            .gallery-container {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header z menu -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0iI2ZmZjZmNyI+PHBhdGggZD0iTTIxIDE2LjVjMCAuODMtLjY3IDEuNS0xLjUgMS41aC01Yy0uODMgMC0xLjUtLjY3LTEuNS0xLjVzLjY3LTEuNSAxLjUtMS41aDVjLjgzIDAgMS41LjY3IDEuNSAxLjV6bS0xLTdjMC0zLjI3LTIuNDYtNS45NS01LjYxLTYuNDJhOC4wMDEgOC4wMDEgMCAwIDAtNi44OCA2Ljg4QzcuNDUgMTAuNTQgNSAxMy4yMyA1IDE2LjVjMCAzLjU4IDIuOTIgNi41IDYuNSA2LjVzNi41LTIuOTIgNi41LTYuNWMwLS4xNy0uMDItLjMzLS4wNC0uNS4wMi0uMTcuMDQtLjMzLjA0LS41em0tMTAgMGMwLS44My42Ny0xLjUgMS41LTEuNWg1Yy44MyAwIDEuNS42NyAxLjUgMS41cy0uNjcgMS41LTEuNSAxLjVoLTVjLS44MyAwLTEuNS0uNjctMS41LTEuNXoiLz48L3N2Zz4=" alt="Logo">
+                <h1>SoundWave Festival</h1>
+            </div>
+            
+            <div class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            
+            <nav class="nav-menu" id="navMenu">
+                <div class="close-menu" id="closeMenu">
+                    <i class="fas fa-times"></i>
+                </div>
+                <ul>
+                    <li><a href="#"><i class="fas fa-home"></i> Strona Główna</a></li>
+                    <li><a href="schedule.html"><i class="fas fa-calendar-alt"></i> Harmonogram</a></li>
+                    <li><a href="artists.html"><i class="fas fa-microphone-alt"></i> Artyści</a></li>
+                    <li><a href="gallery.html"><i class="fas fa-images"></i> Galeria</a></li>
+                    <li><a href="contact.html"><i class="fas fa-envelope"></i> Kontakt</a></li>
+                    <li><a href="tickets.html"><i class="fas fa-ticket-alt"></i> Bilety</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Sekcja Hero -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>SoundWave Festival 2023</h1>
+            <p>Doświadcz niezapomnianych wrażeń na największym festiwalu muzycznym tego lata! 3 dni, 5 scen, ponad 50 artystów.</p>
+            <p>28-30 lipca | Warszawa, Torwar</p>
+            <a href="tickets.html" class="btn">Kup bilet</a>
+        </div>
+    </section>
+
+    <!-- Sekcja Artyści -->
+    <section id="artists">
+        <div class="container">
+            <h2 class="section-title">Gwiazdy Festiwalu</h2>
+            <div class="artists-grid">
+                <div class="artist-card">
+                    <div class="artist-img">
+                        <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="DJ Elektro">
+                    </div>
+                    <div class="artist-info">
+                        <h3>DJ Elektro</h3>
+                        <p>Electronic, Techno</p>
+                    </div>
+                </div>
+                
+                <div class="artist-card">
+                    <div class="artist-img">
+                        <img src="https://images.unsplash.com/photo-1494232410401-ad00d5433cfa?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="The Rockers">
+                    </div>
+                    <div class="artist-info">
+                        <h3>The Rockers</h3>
+                        <p>Rock, Alternative</p>
+                    </div>
+                </div>
+                
+                <div class="artist-card">
+                    <div class="artist-img">
+                        <img src="https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Luna Beat">
+                    </div>
+                    <div class="artist-info">
+                        <h3>Luna Beat</h3>
+                        <p>Indie, Pop</p>
+                    </div>
+                </div>
+                
+                <div class="artist-card">
+                    <div class="artist-img">
+                        <img src="https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Urban Flow">
+                    </div>
+                    <div class="artist-info">
+                        <h3>Urban Flow</h3>
+                        <p>Hip-hop, R&B</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sekcja Harmonogram -->
+    <section id="schedule">
+        <div class="container">
+            <h2 class="section-title">Harmonogram</h2>
+            
+            <div class="schedule-container">
+                <table class="schedule-table">
+                    <thead>
+                        <tr>
+                            <th>Godzina</th>
+                            <th>Główna Scena</th>
+                            <th>Scena Elektroniczna</th>
+                            <th>Scena Alternatywna</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>18:00 - 19:00</td>
+                            <td>Otwarcie Festiwalu</td>
+                            <td>DJ Pulse</td>
+                            <td>The Beginners</td>
+                        </tr>
+                        <tr>
+                            <td>19:30 - 20:30</td>
+                            <td>Rock Fusion</td>
+                            <td>Electro Vibes</td>
+                            <td>Acoustic Session</td>
+                        </tr>
+                        <tr>
+                            <td>21:00 - 22:30</td>
+                            <td>The Rockers</td>
+                            <td>Techno Master</td>
+                            <td>Indie Collective</td>
+                        </tr>
+                        <tr>
+                            <td>23:00 - 00:30</td>
+                            <td>Luna Beat</td>
+                            <td>DJ Elektro</td>
+                            <td>Midnight Stars</td>
+                        </tr>
+                        <tr>
+                            <td>01:00 - 03:00</td>
+                            <td>Urban Flow</td>
+                            <td>After Hours</td>
+                            <td>Night Owls</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Galeria -->
+    <section id="gallery">
+        <div class="container">
+            <h2 class="section-title">Galeria z poprzedniej edycji</h2>
+            
+            <div class="gallery-scroll">
+                <div class="gallery-container">
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Widownia">
+                        <div class="caption">Energia tłumu</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Scena">
+                        <div class="caption">Główna scena nocą</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Artysta">
+                        <div class="caption">DJ Elektro w akcji</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1506157786151-b8491531f063?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Food">
+                        <div class="caption">Strefa gastronomiczna</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Lights">
+                        <div class="caption">Efekty świetlne</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1472653816316-3ad6f10a6592?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Crowd">
+                        <div class="caption">Taneczny tłum</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section id="newsletter">
+        <div class="container">
+            <div class="newsletter">
+                <h2>Zapisz się do newslettera</h2>
+                <p>Bądź na bieżąco z aktualnościami, lineupem i promocjami biletowymi!</p>
+                
+                <form class="newsletter-form">
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" placeholder="Twój email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="name">Imię</label>
+                        <input type="text" id="name" placeholder="Twoje imię">
+                    </div>
+                    
+                    <button type="submit" class="btn">Zapisz się</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stopka -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>SoundWave Festival</h3>
+                    <p>Największe wydarzenie muzyczne tego lata! Doświadcz niezapomnianych wrażeń wśród najlepszych artystów sceny krajowej i międzynarodowej.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-spotify"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Szybkie linki</h3>
+                    <ul>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Strona Główna</a></li>
+                        <li><a href="#artists"><i class="fas fa-chevron-right"></i> Artyści</a></li>
+                        <li><a href="#schedule"><i class="fas fa-chevron-right"></i> Harmonogram</a></li>
+                        <li><a href="#gallery"><i class="fas fa-chevron-right"></i> Galeria</a></li>
+                        <li><a href="tickets.html"><i class="fas fa-chevron-right"></i> Bilety</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Kontakt</h3>
+                    <ul>
+                        <li><a href="#"><i class="fas fa-map-marker-alt"></i> Torwar, Warszawa</a></li>
+                        <li><a href="mailto:info@soundwave.pl"><i class="fas fa-envelope"></i> info@soundwave.pl</a></li>
+                        <li><a href="tel:+48123456789"><i class="fas fa-phone"></i> +48 123 456 789</a></li>
+                        <li><a href="#"><i class="fas fa-info-circle"></i> Regulamin festiwalu</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 SoundWave Festival. Wszystkie prawa zastrzeżone.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Podstrona Harmonogram -->
+    <section class="schedule-page" style="display: none;">
+        <div class="container">
+            <h2 class="section-title">Pełny Harmonogram</h2>
+            
+            <div class="day-selector">
+                <div class="day-btn active">Dzień 1</div>
+                <div class="day-btn">Dzień 2</div>
+                <div class="day-btn">Dzień 3</div>
+            </div>
+            
+            <div class="schedule-container">
+                <table class="schedule-table">
+                    <thead>
+                        <tr>
+                            <th>Godzina</th>
+                            <th>Główna Scena</th>
+                            <th>Scena Elektroniczna</th>
+                            <th>Scena Alternatywna</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Dodatkowe wiersze harmonogramu -->
+                        <tr>
+                            <td>17:00 - 18:00</td>
+                            <td>Sound Check</td>
+                            <td>Warm Up Set</td>
+                            <td>Acoustic Prelude</td>
+                        </tr>
+                        <tr>
+                            <td>18:30 - 19:30</td>
+                            <td>New Wave Band</td>
+                            <td>Deep House Vibes</td>
+                            <td>Folk Stories</td>
+                        </tr>
+                        <tr>
+                            <td>20:00 - 21:30</td>
+                            <td>Retro Sounds</td>
+                            <td>Tech House Session</td>
+                            <td>Indie Discovery</td>
+                        </tr>
+                        <tr>
+                            <td>22:00 - 23:30</td>
+                            <td>Rock Legends</td>
+                            <td>Trance Journey</td>
+                            <td>Alternative Experience</td>
+                        </tr>
+                        <tr>
+                            <td>00:00 - 02:00</td>
+                            <td>Headliner Act</td>
+                            <td>DJ Marathon</td>
+                            <td>Late Night Session</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Podstrona Kontakt -->
+    <section class="contact-page" style="display: none;">
+        <div class="container">
+            <h2 class="section-title">Kontakt</h2>
+            
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Informacje kontaktowe</h3>
+                    <div class="contact-info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Adres</h4>
+                            <p>Torwar, Łazienkowska 6A, 00-449 Warszawa</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-info-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <p>info@soundwave.pl</p>
+                            <p>bilety@soundwave.pl</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-info-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>Telefon</h4>
+                            <p>+48 123 456 789 (Informacja)</p>
+                            <p>+48 987 654 321 (Bilety)</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-info-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h4>Godziny otwarcia</h4>
+                            <p>Pon-Pt: 9:00 - 17:00</p>
+                            <p>Sob: 10:00 - 14:00</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <h3>Wyślij wiadomość</h3>
+                    <form>
+                        <div class="form-group">
+                            <label for="contact-name">Imię i nazwisko</label>
+                            <input type="text" id="contact-name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="contact-email">Email</label>
+                            <input type="email" id="contact-email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="contact-subject">Temat</label>
+                            <select id="contact-subject">
+                                <option>Pytanie ogólne</option>
+                                <option>Bilety</option>
+                                <option>Współpraca</option>
+                                <option>Media</option>
+                                <option>Inne</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="contact-message">Wiadomość</label>
+                            <textarea id="contact-message" rows="5" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn">Wyślij wiadomość</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Menu mobilne
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.getElementById('navMenu');
+        const closeMenu = document.getElementById('closeMenu');
+        
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+        
+        closeMenu.addEventListener('click', () => {
+            navMenu.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+        
+        // Zamknij menu po kliknięciu w link
+        const navLinks = document.querySelectorAll('.nav-menu a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            });
+        });
+        
+        // Przełączanie dni na podstronie harmonogramu
+        const dayBtns = document.querySelectorAll('.day-btn');
+        dayBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                dayBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>

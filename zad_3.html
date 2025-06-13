@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapa z Leaflet.js</title>
+    
+    <!-- Dodajemy CSS Leaflet -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    
+    <style>
+        #map { 
+            height: 600px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        
+        .custom-popup .leaflet-popup-content-wrapper {
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+        }
+        
+        .custom-popup .leaflet-popup-content {
+            margin: 12px;
+        }
+        
+        .copy-btn {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 14px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        
+        .copy-btn:hover {
+            background-color: #45a049;
+        }
+        
+        .custom-polygon {
+            fill-color: #3388ff;
+            fill-opacity: 0.3;
+            stroke: #3388ff;
+            stroke-width: 2;
+            transition: all 0.3s ease;
+        }
+        
+        .custom-polygon:hover {
+            fill-color: #ff3333;
+            fill-opacity: 0.6;
+            stroke: #ff0000;
+            stroke-width: 3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Moja interaktywna mapa</h1>
+    <div id="map"></div>
+    <p>Kliknij na mapę, aby skopiować współrzędne</p>
+    
+    <!-- Dodajemy JS Leaflet -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    
+    <script>
+        // Inicjalizacja mapy
+        const map = L.map('map').setView([51.505, -0.09], 13);
+        
+        // Dodanie warstwy kafelków
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+        
+        // Dodanie 3 markerów z zawsze otwartymi popupami
+        const markers = [
+            {
+                coords: [51.505, -0.09],
+                content: '<h3>Marker 1</h3><button class="copy-btn" data-coords="51.505, -0.09">Kopiuj współrzędne</button>'
+            },
+            {
+                coords: [51.51, -0.1],
+                content: '<h3>Marker 2</h3><button class="copy-btn" data-coords="51.51, -0.1">Kopiuj współrzędne</button>'
+            },
+            {
+                coords: [51.515, -0.07],
+                content: '<h3>Marker 3</h3><button class="copy-btn" data-coords="51.515, -0.07">Kopiuj współrzędne</button>'
+            }
+        ];
+        
+        markers.forEach(markerInfo => {
+            const marker = L.marker(markerInfo.coords).addTo(map);
+            marker.bindPopup(markerInfo.content, {
+                className: 'custom-popup',
+                closeButton: false
+            }).openPopup();
+        });
+        
+        // Dodanie polygonu (trójkąt)
+        const polygonCoords = [
+            [51.51, -0.12],
+            [51.51, -0.05],
+            [51.50, -0.08]
+        ];
+        
+        const polygon = L.polygon(polygonCoords, {
+            className: 'custom-polygon'
+        }).addTo(map);
+        
+        // Funkcja kopiowania współrzędnych
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text)
+                .then(() => alert(`Skopiowano: ${text}`))
+                .catch(err => console.error('Błąd kopiowania:', err));
+        }
+        
+        // Obsługa kliknięcia na mapę
+        map.on('click', e => {
+            const coords = `${e.latlng.lat.toFixed(5)}, ${e.latlng.lng.toFixed(5)}`;
+            copyToClipboard(coords);
+        });
+        
+        // Obsługa kliknięcia przycisków w popupach
+        document.addEventListener('click', e => {
+            if (e.target.classList.contains('copy-btn')) {
+                const coords = e.target.getAttribute('data-coords');
+                copyToClipboard(coords);
+            }
+        });
+    </script>
+</body>
+</html>
