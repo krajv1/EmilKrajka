@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Logowanie</title>
+    <style>
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1>Logowanie</h1>
+    <form action="/login" method="POST">
+        <div>
+            <label for="username">Nazwa uzytkownika:</label>
+            <input type="text"
+                   id="username"
+                   name="username"
+                   required
+                   aria-describedby="username-error">
+            <div id="username-error" class="error"></div>
+        </div>
+
+        <div>
+            <label for="password">Haslo:</label>
+            <input type="password"
+                   id="password"
+                   name="password"
+                   required
+                   minlength="8"
+                   aria-describedby="password-error">
+            <div id="password-error" class="error"></div>
+        </div>
+
+        <button type="submit">Zaloguj sie</button>
+    </form>
+</body>
+</html>
