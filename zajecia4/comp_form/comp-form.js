@@ -9,7 +9,7 @@ function validateForm() {
   const solutionsGroup = document.querySelectorAll('#solutions-group input[type="radio"]:checked');
   const solutionDescription = document.getElementById('solution-description').value.trim();
 
-  // Validation checks
+  
   const validations = {
     'full-name': fullName !== '',
     'email': /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email),
@@ -25,18 +25,18 @@ function validateForm() {
   return validations;
 }
 
-// Function to check if all fields are valid
+
 function isValid(validations) {
   return Object.values(validations).every(value => value);
 }
 
-// Function to handle form submission
+
 function handleFormSubmit(event) {
   event.preventDefault();
 
   const validations = validateForm();
 
-  // Highlighting fields based on validation results
+ 
   const fields = [
     { id: 'full-name', fieldType: 'input' },
     { id: 'email', fieldType: 'input' },
@@ -58,19 +58,19 @@ function handleFormSubmit(event) {
     }
   });
 
-  // Final form submission check
+  
   if (isValid(validations)) {
     alert("Form submitted successfully!");
-    // Submit form or handle other logic here
+   
   } else {
     alert("Please fix the errors in the form.");
   }
 }
 
-// Add event listener to form
+
 document.getElementById('order-form').addEventListener('submit', handleFormSubmit);
 
-// Add change events to update border colors for form inputs
+
 const inputs = document.querySelectorAll('input, textarea');
 inputs.forEach(input => {
   input.addEventListener('change', () => {
