@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mapa z Leaflet.js</title>
     
-    <!-- Dodajemy CSS Leaflet -->
+    
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     
     <style>
@@ -64,19 +64,19 @@
     <div id="map"></div>
     <p>Kliknij na mapę, aby skopiować współrzędne</p>
     
-    <!-- Dodajemy JS Leaflet -->
+    
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     
     <script>
-        // Inicjalizacja mapy
+        
         const map = L.map('map').setView([51.505, -0.09], 13);
         
-        // Dodanie warstwy kafelków
+        
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         }).addTo(map);
         
-        // Dodanie 3 markerów z zawsze otwartymi popupami
+        
         const markers = [
             {
                 coords: [51.505, -0.09],
@@ -100,7 +100,7 @@
             }).openPopup();
         });
         
-        // Dodanie polygonu (trójkąt)
+        
         const polygonCoords = [
             [51.51, -0.12],
             [51.51, -0.05],
@@ -111,20 +111,20 @@
             className: 'custom-polygon'
         }).addTo(map);
         
-        // Funkcja kopiowania współrzędnych
+       
         function copyToClipboard(text) {
             navigator.clipboard.writeText(text)
                 .then(() => alert(`Skopiowano: ${text}`))
                 .catch(err => console.error('Błąd kopiowania:', err));
         }
         
-        // Obsługa kliknięcia na mapę
+        
         map.on('click', e => {
             const coords = `${e.latlng.lat.toFixed(5)}, ${e.latlng.lng.toFixed(5)}`;
             copyToClipboard(coords);
         });
         
-        // Obsługa kliknięcia przycisków w popupach
+        
         document.addEventListener('click', e => {
             if (e.target.classList.contains('copy-btn')) {
                 const coords = e.target.getAttribute('data-coords');
